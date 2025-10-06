@@ -1,0 +1,298 @@
+/* ===== General Page Styling ===== */
+.landing-page {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Segoe UI", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header Section ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header img {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header img:hover {
+  transform: scale(1.05);
+}
+
+.header-text {
+  display: inline-block;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header-text:hover {
+  color: #007bff;
+}
+
+.header-button {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  margin-top: 120px;
+  text-align: center;
+  color: #444;
+  flex-grow: 1;
+}
+
+.main-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-top: 4rem;
+  margin-bottom: 3.5rem;
+}
+
+/* ===== Doctor / Visitor Cards ===== */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+}
+
+.card-box {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-divider {
+  width: 2px;
+  background-color: #ccc;
+  align-self: stretch;
+}
+
+/* ===== Consultation Section ===== */
+.consult-section {
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 0 auto 4rem;
+  width: 85%;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.consult-header {
+  margin-bottom: 2rem;
+}
+
+.consult-header h2 {
+  font-size: 2rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.consult-header h5 {
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.consult-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consult-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.consult-card img {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.consult-card p {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ===== Footer Section ===== */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer .nav {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+footer .nav-link {
+  color: #bbb;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer .nav-link:hover {
+  color: #fff;
+}
+
+footer p {
+  color: #888;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* ===== Carousel Wrapper Box ===== */
+.carousel-wrapper {
+  max-width: 1000px;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 60px 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* ===== Carousel Core ===== */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Smooth slide */
+.carousel-item {
+  transition: transform 0.8s ease-in-out;
+  text-align: center;
+  padding: 50px 40px;
+}
+
+/* ===== Caption inside the box ===== */
+.carousel-caption {
+  position: static;
+  color: #000;
+  text-align: center;
+}
+
+.carousel-caption h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.carousel-caption p:last-child {
+  font-weight: 600;
+  margin-top: 20px;
+  color: #000; /* author color black */
+}
+
+/* ===== Controls & Indicators ===== */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  width: 35px;
+  height: 35px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-indicators {
+  bottom: -35px;
+}
+
+.carousel-indicators button {
+  background-color: #999;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicators .active {
+  background-color: #222;
+}
