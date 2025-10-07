@@ -1,15 +1,16 @@
 /* ===== Header ===== */
 .header-container {
-  background: linear-gradient(90deg, #0f172a, #1e3a8a);
+  background: linear-gradient(90deg, rgb(15, 23, 42), #1e3a8a);
   color: #ffffff !important;
   padding: 1rem 2rem;   /* spacing inside header */
   border-bottom: 1px solid #1f2937;
+  margin-bottom: 0%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); 
   position: relative;
-  z-index: 1050;
+  z-index: 1001;
   display: flex;
   align-items: center;
-  justify-content: space-between;  /* logo left, user menu right */
+  justify-content: space-between;  
 }
 
 /* Logo */

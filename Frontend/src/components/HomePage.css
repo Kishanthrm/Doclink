@@ -1,10 +1,102 @@
+/* Reset styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout components */
 .HomePage {
-  width: 100vw;   
-  height: 100vh;  
-  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top left, #ffffff,#a1c4fd)
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-content {
+  padding-top: 72px;
+  margin-top: 0;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.page-content.sidebar-open {
+  margin-left: 280px;
+}
+
+/* Hero section */
+.container-fluid {
+  height: 460px;
+  background-color: rgba(0, 255, 255, 0.8);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../assets/homebackground.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  background-color: rgba(255, 255, 255, 0.6);
-  background-blend-mode: lighten; 
+}
+
+/* Form elements */
+.bordered-dropdown {
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+/* Specialty cards */
+.specialty-card {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  height: 100%;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-5px);
+}
+
+.specialty-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Article section */
+.article-section {
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 50px;
+  }
+  
+  .container-fluid {
+    height: 380px;
+  }
+  
+  .page-content.sidebar-open {
+    margin-left: 0;
+  }
 }
