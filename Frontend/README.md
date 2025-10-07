@@ -1,3 +1,6 @@
+# Doclink
+End-to-end patient portal with appointment scheduling, profile management, and medical records using React, Node.js, and PostgreSQL.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

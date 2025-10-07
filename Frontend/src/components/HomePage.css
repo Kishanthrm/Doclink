@@ -1,5 +1,5 @@
-html,
-body {
+/* Reset styles */
+html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -28,4 +28,47 @@ body {
 .bordered-dropdown {
   border: 1px solid #000000;
   border-radius: 8px;
+}
+
+/* Specialty cards */
+.specialty-card {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  height: 100%;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-5px);
+}
+
+.specialty-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Article section */
+.article-section {
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 50px;
+  }
+  
+  .container-fluid {
+    height: 380px;
+  }
+  
+  .page-content.sidebar-open {
+    margin-left: 0;
+  }
 }
