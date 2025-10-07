@@ -1,5 +1,6 @@
 /* Reset styles */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -32,7 +33,7 @@ html, body {
 
 /* Specialty cards */
 .specialty-card {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
   border-radius: 8px;
   background-color: white;
@@ -58,16 +59,36 @@ html, body {
   padding: 20px 0;
 }
 
+/* Ensure header is fixed */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+}
+
+/* Add top padding to page-content to avoid header overlap */
+.page-content {
+  padding-top: 72px; /* Adjust based on header height */
+  transition: margin-left 0.6s;
+}
+
+/* When sidebar is open, shift content */
+.page-content.sidebar-open {
+  margin-left: 250px; /* Adjust to your sidebar width */
+}
+
 /* Media queries */
 @media (max-width: 768px) {
   .page-content {
     padding-top: 50px;
   }
-  
+
   .container-fluid {
     height: 380px;
   }
-  
+
   .page-content.sidebar-open {
     margin-left: 0;
   }
