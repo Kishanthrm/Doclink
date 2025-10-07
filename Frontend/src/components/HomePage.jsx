@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Home.css";
+import "./HomePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import cardiologyImg from "../assets/cardiology.png";
@@ -9,6 +9,7 @@ import dermatology from "../assets/Dermatology.png";
 import pediatrics from "../assets/Pediatrics.png";
 import psychiatry from "../assets/Psychiatry.png";
 import Articles from "./Articles";
+import Footer from "./Footer";
 
 const HomePage = () => {
   const [selectedLocation, setSelectedLocation] = useState(
@@ -20,7 +21,7 @@ const HomePage = () => {
   };
 
   return (
-    <>
+    <div className="Container">
       {/* Hero Section */}
       <div
         className="container-fluid d-flex flex-column align-items-center justify-content-center"
@@ -172,7 +173,8 @@ const HomePage = () => {
         {/* Article */}
         <Articles/>
       </div>
-    </>
+      <Footer/>
+    </div>
   );
 };
 

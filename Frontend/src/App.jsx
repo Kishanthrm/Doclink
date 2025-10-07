@@ -5,12 +5,15 @@ import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import HomePage from './components/HomePage';
+import LandingPage from './components/LandingPage';
 function App() {
   return (
     <>
     {/* <Signin/> */}
     {/* <Login/> */}
     <HomePage/>
+    {/* <LandingPage/> */}
+    {/* <MyAppointmentsPage/> */}
     </>
   )
 }

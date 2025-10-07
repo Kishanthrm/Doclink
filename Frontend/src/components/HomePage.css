@@ -4,7 +4,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-body {
+.Container {
   margin: 0;
   padding: 0;
   background-image: url("../assets/fullhomebackground.png");

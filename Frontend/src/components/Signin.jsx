@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bg from "../assets/background.jpg";
+import bg from "../assets/fullhomebackground.png";
 const Signin = () => {
   const [step, setStep] = useState(1);
   const [user, setUser] = useState({
