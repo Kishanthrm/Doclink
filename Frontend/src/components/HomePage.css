@@ -4,55 +4,27 @@ html, body {
   padding: 0;
   overflow-x: hidden;
 }
-
-body {
+.Container {
   margin: 0;
   padding: 0;
-}
-
-/* Layout components */
-.HomePage {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(circle at top left, #ffffff,#a1c4fd)
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.page-content {
-  padding-top: 72px;
-  margin-top: 0;
-  transition: margin-left 0.3s ease-in-out;
-}
-
-.page-content.sidebar-open {
-  margin-left: 280px;
-}
-
-/* Hero section */
-.container-fluid {
-  height: 460px;
-  background-color: rgba(0, 255, 255, 0.8);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url("../assets/homebackground.jpg");
+  background-image: url("../assets/fullhomebackground.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
-/* Form elements */
+.container-fluid {
+  height: 460px;
+  background-color: aqua;
+  margin-bottom: 50px;
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-image: url("../assets/homebackground.jpg");
+  background-size: cover;
+  background-position: center;
+}
 .bordered-dropdown {
   border: 1px solid #000000;
   border-radius: 8px;

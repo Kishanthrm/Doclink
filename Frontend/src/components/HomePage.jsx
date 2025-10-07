@@ -161,6 +161,7 @@ const HomePage = () => {
           <Articles />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

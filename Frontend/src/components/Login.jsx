@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bg from "../assets/background.jpg";
+import bg from "../assets/fullhomebackground.png";
 const containerStyle = {
   display: "flex",
   justifyContent: "center",
