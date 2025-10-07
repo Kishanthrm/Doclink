@@ -11,6 +11,7 @@ import pediatrics from "../assets/Pediatrics.png";
 import psychiatry from "../assets/Psychiatry.png";
 import Articles from "./Articles";
 import { UseContextProvider } from "../Context/ContextProvider";
+import Footer from "./Footer";
 
 const HomePage = () => {
   const { Isopen } = UseContextProvider();
@@ -110,15 +111,15 @@ const HomePage = () => {
             {/* Dropdown */}
             <div>
               <span>
-                  <i class="bi bi-search"></i>
+                <i class="bi bi-search"></i>
               </span>
               <input
-              type="text"
-              class="bordered-dropdown"
-              style={{ height: "50px", width: "500px", paddingLeft: "25px" }}
-              aria-label="Text input with dropdown button"
-              placeholder= "Search doctors..."
-            />
+                type="text"
+                class="bordered-dropdown"
+                style={{ height: "50px", width: "500px", paddingLeft: "25px" }}
+                aria-label="Text input with dropdown button"
+                placeholder="Search doctors..."
+              />
             </div>
           </div>
         </div>
@@ -161,7 +162,7 @@ const HomePage = () => {
           <Articles />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
