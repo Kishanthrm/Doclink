@@ -108,7 +108,6 @@ const HomePage = () => {
               Find And Book
             </h2>
 
-            {/* Dropdown */}
             <div>
               <span>
                 <i class="bi bi-search"></i>
