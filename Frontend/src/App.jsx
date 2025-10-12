@@ -7,6 +7,9 @@ import Signin from "./components/Signin";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ContextProvider } from "./Context/ContextProvider";
+import MyAppointmentsPage from './components/MyAppointmentsPage';
+import DoctorSpecifications from "./components/DoctorSpecifications";
+import DashboardProfile from "./components/DashboardProfile";
 
 function App() {
   return (
@@ -14,10 +17,12 @@ function App() {
       <ContextProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<DoctorSpecifications/>} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/myappointments" element={<MyAppointmentsPage/>} />
+            <Route path="/profile" element={<DashboardProfile/>} />
           </Routes>
         </Router>
       </ContextProvider>

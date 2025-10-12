@@ -109,17 +109,30 @@ const HomePage = () => {
             </h2>
 
             {/* Dropdown */}
-            <div>
-              <span>
-                <i class="bi bi-search"></i>
-              </span>
+            <div style={{ position: "relative", width: "500px" }}>
               <input
                 type="text"
-                class="bordered-dropdown"
-                style={{ height: "50px", width: "500px", paddingLeft: "25px" }}
+                className="bordered-dropdown"
+                style={{
+                  height: "50px",
+                  width: "100%",
+                  paddingLeft: "40px",
+                }}
                 aria-label="Text input with dropdown button"
                 placeholder="Search doctors..."
               />
+              <i
+                className="bi bi-search"
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "12px",
+                  transform: "translateY(-50%)",
+                  color: "#999",
+                  pointerEvents: "none",
+                  fontSize: "20px",
+                }}
+              ></i>
             </div>
           </div>
         </div>

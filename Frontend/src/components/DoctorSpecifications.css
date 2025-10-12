@@ -1,0 +1,186 @@
+/* Add top padding to page-content to avoid header overlap */
+.page-content {
+  padding-top: 72px; /* Adjust based on header height */
+  transition: margin-left 0.6s;
+}
+
+/* When sidebar is open, shift content */
+.page-content.sidebar-open {
+  margin-left: 250px; /* Adjust to your sidebar width */
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 50px;
+  }
+
+  .container-fluid {
+    height: 380px;
+  }
+
+  .page-content.sidebar-open {
+    margin-left: 0;
+  }
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+}
+.PatientStories{
+  margin-top: 20px;
+  background-color:#e6f3ff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.PatientStories h2{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.doctor-qna-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0; /* Subtle border around the whole section */
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.doctor-qna-container h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Separator line under the title */
+  color: #333;
+}
+
+.qna-item {
+  margin-bottom: 25px; /* Space between each Q&A pair */
+}
+
+/* Style for the question line */
+.qna-question {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #000; /* Darker color for visibility */
+}
+
+/* Style for the answer line */
+.qna-answer {
+  margin-top: 0;
+  padding-left: 15px; /* Indent the answer slightly */
+  color: #555;
+}
+
+.qna-answer strong, 
+.qna-question strong {
+  /* This targets the 'Q:' and 'A:' prefixes */
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+/* Style for links, making them stand out like in the original image */
+.qna-answer a {
+  color: #007bff; /* A common blue color for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500;
+}
+
+.qna-answer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+.doctor-profile-details {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Base style for all sections */
+.profile-section {
+  padding: 15px 0;
+  margin-bottom: 25px;
+}
+
+.profile-section h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+/* List styling */
+.profile-section ul {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Enable flex for multi-column lists */
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
+}
+
+.profile-section li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  /* Use a custom dot for styling */
+  position: relative;
+  padding-left: 15px;
+}
+
+.profile-section li::before {
+  content: '•'; /* Use a bullet point */
+  color: #555; /* Color the bullet */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Services section specific styling (3-column layout) */
+.services-section .list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-section ul {
+    flex-direction: column; /* Ensure lists remain vertical */
+}
+
+/* Two-column layout rows */
+.two-column-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee; /* Separator line like in the image */
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.two-column-row .profile-section {
+  flex-basis: 48%; /* Give each section a bit less than half space */
+  padding: 0;
+}
+
+/* Separator for Education section */
+.education-section {
+    border-top: 1px solid #eee; 
+    padding-top: 20px;
+}
+
+/* Separator for Registrations section */
+.registrations-section {
+    border-top: 1px solid #eee;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .services-section .list-container,
+  .two-column-row {
+    flex-direction: column;
+  }
+}
