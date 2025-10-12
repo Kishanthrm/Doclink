@@ -1,3 +1,32 @@
-body{
-    background-color: black;
+/* Add top padding to page-content to avoid header overlap */
+.page-content {
+  padding-top: 72px; /* Adjust based on header height */
+  transition: margin-left 0.6s;
+}
+
+/* When sidebar is open, shift content */
+.page-content.sidebar-open {
+  margin-left: 250px; /* Adjust to your sidebar width */
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 50px;
+  }
+
+  .container-fluid {
+    height: 380px;
+  }
+
+  .page-content.sidebar-open {
+    margin-left: 0;
+  }
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
 }
