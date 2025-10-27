@@ -1,0 +1,221 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e6f3ff;
+}
+
+/* Centering container */
+.main-content-wrapper {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  width: 100%;
+  padding-top: 100px; /* Adjust based on header height */
+}
+
+.medcontainer {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: flex-start; /* Keeps it top-aligned */
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.filecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.separator {
+  height: 35px;
+  width: 2px;
+  background-color: #cccccc;
+  margin: 0 25px;
+}
+
+.file-input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  background-color: #fcfdff;
+}
+
+#file-upload {
+  display: none;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+  background-color: #218838;
+}
+
+.file-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.file-name-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 8px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.file-name-text {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove-file-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0 0 0 15px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.remove-file-btn:hover {
+  color: #333;
+}
+
+.save-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Active button style */
+.action-button.active-button {
+  background-color: #004d99;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  transform: none;
+}
+
+.action-button.active-button:hover {
+  background-color: #004d99;
+  transform: none;
+}
+
+/* Existing records list */
+.existing-records-list {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.existing-records-list h2 {
+  font-size: 1.25rem;
+  color: #007bff;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.existing-records-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.existing-records-list li {
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: white;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease-in-out, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.existing-records-list li:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.existing-records-list li:last-child {
+  margin-bottom: 0;
+}

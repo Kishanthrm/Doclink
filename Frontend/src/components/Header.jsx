@@ -23,17 +23,17 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link">
-                  Medical Records
+                <a href="/medicalrecords" className="nav-link">
+                  Medication-Follow-ups
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link ">
+                <a href="/" className="nav-link ">
                   AI Support
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link">
+                <a href="/profile" className="nav-link">
                   Profile
                 </a>
               </li>
