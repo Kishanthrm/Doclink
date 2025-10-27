@@ -1,5 +1,4 @@
 import React from "react";
-import "./LandingPage.css";
 import logo from "../assets/logo.jpeg";
 import bg from "../assets/fullhomebackground.png";
 import acne from "../assets/acne.png";
@@ -8,6 +7,7 @@ import child from "../assets/child.png";
 import cold from "../assets/cold.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./LandingPage.css";
 import Footer from "./Footer";
 
 const LandingPage = () => {
