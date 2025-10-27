@@ -20,7 +20,7 @@ function App() {
       <ContextProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<DoctorSpecifications/>} />
+            <Route path="/" element={<LandingPage/>} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/login" element={<Login />} />
