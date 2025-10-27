@@ -46,7 +46,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="/bookappoinment" className="nav-link text-white">
+            <a href="/bookappoinments" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -60,7 +60,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="/myappointments" className="nav-link text-white">
+            <a href="/myappoinments" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
