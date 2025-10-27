@@ -16,7 +16,7 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      {/* <ContextProvider>
+      <ContextProvider>
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage/>} />
@@ -29,8 +29,7 @@ function App() {
             <Route path="/profile" element={<DashboardProfile/>} />
           </Routes>
         </Router>
-      </ContextProvider> */}
-      <BookAppointment/>
+      </ContextProvider>
     </div>
   );
 }
