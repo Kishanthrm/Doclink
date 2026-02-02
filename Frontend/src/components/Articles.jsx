@@ -2,169 +2,106 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-export default function Articles() {
+export default function Articles({ newsdata }) {
+  const articles = newsdata || [];
+
+  // Group into 3 per slide
+  const groupedArticles = [];
+  for (let i = 0; i < articles.length; i += 3) {
+    groupedArticles.push(articles.slice(i, i + 3));
+  }
+
   return (
     <div className="container my-5">
-      <h2 className="text-center mb-5 fw-bold" style={{ color: "white" }}>
+      <h2 className="text-center mb-5 fw-bold" style={{ color: "black" }}>
         Read top articles from health experts
       </h2>
 
-      <div
-        id="carouselExample"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
+      <div id="articleCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
-          {/* ===== Slide 1 ===== */}
-          <div className="carousel-item active">
-            <div className="d-flex justify-content-center gap-4 flex-wrap">
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/3d1288fb7ca06917c0c207426e73f38c45618109"
-                  className="card-img-top"
-                  alt="ORS Day"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ORS Day - Spread the Message</h5>
-                  <p className="card-text text-muted">
-                    Ms. Swati Kapoor, Dietitian/Nutritionist
-                  </p>
-                  <p className="card-text">
-                    <small>1007 Likes • 4925 Views</small>
-                  </p>
-                </div>
-              </div>
-
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/deb3abe65eca57e1e3d60246943b128efb97c725"
-                  className="card-img-top"
-                  alt="Perfect Routine"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    The Perfect Routine - Lose Weight Throughout the Day,
-                    Everyday!
-                  </h5>
-                  <p className="card-text text-muted">
-                    Ms. Swati Kapoor, Dietitian/Nutritionist
-                  </p>
-                  <p className="card-text">
-                    <small>557 Likes • 153491 Views</small>
-                  </p>
-                </div>
-              </div>
-
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/41f651e5ff8f572ef41f30b66822ab551724efb2"
-                  className="card-img-top"
-                  alt="Coconut Water"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    8 Benefits of Drinking Coconut Water Daily
-                  </h5>
-                  <p className="card-text text-muted">Dr. Namrata Surati</p>
-                  <p className="card-text">
-                    <small>449 Likes • 30953 Views</small>
-                  </p>
-                </div>
+          {groupedArticles.map((group, groupIndex) => (
+            <div
+              key={groupIndex}
+              className={`carousel-item ${groupIndex === 0 ? "active" : ""}`}
+            >
+              <div className="d-flex justify-content-center flex-wrap gap-4">
+                {group.map((article, index) => (
+                  <div
+                    key={index}
+                    className="card shadow-sm d-flex flex-column"
+                    style={{
+                      width: "18rem",
+                      minHeight: "400px", // ensures consistent height
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <img
+                      src={article.image_url || "https://via.placeholder.com/300x200?text=No+Image"}
+                      className="card-img-top"
+                      alt={article.title}
+                      style={{ height: "180px", objectFit: "cover" }}
+                    />
+                    <div
+                      className="card-body d-flex flex-column justify-content-between"
+                      style={{ flex: "1 1 auto" }}
+                    >
+                      <div>
+                        <h5 className="card-title">{article.title}</h5>
+                        <p className="card-text text-muted mb-2">
+                          {article.source_name || "Unknown Source"}
+                        </p>
+                        <p className="card-text">
+                          <small>
+                            {new Date(article.pubDate).toLocaleDateString()} |{" "}
+                            {article.country?.join(", ") || "N/A"}
+                          </small>
+                        </p>
+                      </div>
+                      <div className="mt-auto text-center">
+                        <a
+                          href={article.link}
+                          className="btn btn-info btn-sm text-white fw-semibold"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Read More »
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-
-          {/* ===== Slide 2 (optional) ===== */}
-          <div className="carousel-item active">
-            <div className="d-flex justify-content-center gap-4 flex-wrap">
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/3d1288fb7ca06917c0c207426e73f38c45618109"
-                  className="card-img-top"
-                  alt="ORS Day"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">ORS Day - Spread the Message</h5>
-                  <p className="card-text text-muted">
-                    Ms. Swati Kapoor, Dietitian/Nutritionist
-                  </p>
-                  <p className="card-text">
-                    <small>1007 Likes • 4925 Views</small>
-                  </p>
-                </div>
-              </div>
-
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/deb3abe65eca57e1e3d60246943b128efb97c725"
-                  className="card-img-top"
-                  alt="Perfect Routine"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    The Perfect Routine - Lose Weight Throughout the Day,
-                    Everyday!
-                  </h5>
-                  <p className="card-text text-muted">
-                    Ms. Swati Kapoor, Dietitian/Nutritionist
-                  </p>
-                  <p className="card-text">
-                    <small>557 Likes • 153491 Views</small>
-                  </p>
-                </div>
-              </div>
-
-              <div className="card shadow-sm" style={{ width: "18rem" }}>
-                <img
-                  src="https://www.practostatic.com/fit/41f651e5ff8f572ef41f30b66822ab551724efb2"
-                  className="card-img-top"
-                  alt="Coconut Water"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    8 Benefits of Drinking Coconut Water Daily
-                  </h5>
-                  <p className="card-text text-muted">Dr. Namrata Surati</p>
-                  <p className="card-text">
-                    <small>449 Likes • 30953 Views</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Carousel Controls */}
+        {/* Carousel controls */}
         <button
           className="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExample"
+          data-bs-target="#articleCarousel"
           data-bs-slide="prev"
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
         </button>
-
         <button
           className="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExample"
+          data-bs-target="#articleCarousel"
           data-bs-slide="next"
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
 
       {/* More Articles Button */}
       <div className="text-center mt-4">
-        <button className="btn btn-info text-white fw-semibold px-4">
+        <button
+          className="btn btn-info text-white fw-semibold px-4"
+        >
           More articles
         </button>
       </div>
