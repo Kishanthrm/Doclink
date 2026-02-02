@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import bg from "../assets/fullhomebackground.png";
+import { Link, useNavigate } from "react-router-dom";
 const Signin = () => {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const [user, setUser] = useState({
     fullName: "",
@@ -48,25 +51,81 @@ const Signin = () => {
       "email",
       "password",
     ];
-    if (validateStep(step1Fields)) setStep(2);  
+    if (validateStep(step1Fields)) setStep(2);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const step2Fields = [
-      "bloodGroup",
-      "height",
-      "weight",
-      "medicalCondition",
-      "currentMedication",
-      "allergies",
-      "medicalHistory",
-    ];
-    if (validateStep(step2Fields)) {
-      console.log("Form submitted:", user);
-      alert("Form submitted successfully!");
-    }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const step2Fields = [
+  //     "bloodGroup",
+  //     "height",
+  //     "weight",
+  //     "medicalCondition",
+  //     "currentMedication",
+  //     "allergies",
+  //     "medicalHistory",
+  //   ];
+  //   if (validateStep(step2Fields)) {
+  //     console.log("Form submitted:", user);
+  //     alert("Registeration successfull!");
+  //   }
+  // };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const step2Fields = [
+    "bloodGroup",
+    "height",
+    "weight",
+    "medicalCondition",
+    "currentMedication",
+    "allergies",
+    "medicalHistory",
+  ];
+
+  if (!validateStep(step2Fields)) return;
+
+  // Build payload that matches your backend column names
+  const payload = {
+    user_name: user.fullName,
+    user_age: Number(user.age) || null,
+    user_gender: user.gender,
+    user_contact_no: Number(user.contactNumber) || null,
+    user_email: user.email,
+    user_password: user.password,
+    user_blood_group: user.bloodGroup,
+    user_height: Number(user.height) || null,
+    user_weight: Number(user.weight) || null,
+    user_medical_conditions: user.medicalCondition,
+    user_medication: user.currentMedication,
+    user_allergies: user.allergies,
+    user_med_history: user.medicalHistory,
   };
+
+  try {
+    const res = await fetch("http://localhost:5000/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),   
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error("Server returned error:", data);
+      alert("Registration failed: " + (data.details || data.error));
+      return;
+    }
+
+    console.log("Server response:", data);
+    alert("Registration successful!");
+    navigate("/home");
+  } catch (err) {
+    console.error("Network / fetch error:", err);
+    alert("Network error, please try again.");
+  }
+};
+
 
   // Inline Styles
   const containerStyle = {
@@ -113,6 +172,14 @@ const Signin = () => {
     color: "#000",
   };
 
+  const h5Style = {
+    textAlign: "center",
+    marginTop: "15px",
+    color: "#000",
+    fontWeight: "400",
+    fontSize: "14px",
+  };
+
   const inputStyle = {
     width: "100%",
     padding: "12px",
@@ -146,6 +213,21 @@ const Signin = () => {
     marginTop: "-5px",
     marginBottom: "10px",
     display: "block",
+  };
+  const data = {
+    user_name: user.fullName,
+    user_age: Number(user.age),
+    user_gender: user.gender,
+    user_contact_no: Number(user.contactNumber),
+    user_email: user.email,
+    user_password: user.password,
+    user_blood_group: user.bloodGroup,
+    user_height: Number(user.height),
+    user_weight: Number(user.weight),
+    user_medical_conditions: user.medicalCondition,
+    user_medication: user.currentMedication,
+    user_allergies: user.allergies,
+    user_med_history: user.medicalHistory,
   };
 
   return (
@@ -242,6 +324,9 @@ const Signin = () => {
             <button type="submit" style={buttonStyle}>
               Next
             </button>
+            <h5 style={h5Style}>
+              Already have an account <Link to={"/login"}>login</Link>
+            </h5>
           </form>
         )}
 
@@ -345,5 +430,4 @@ const Signin = () => {
     </div>
   );
 };
-
 export default Signin;

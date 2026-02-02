@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./DoctorProfile.css";
-import { IoShareOutline, IoLanguage, IoLocationOutline } from "react-icons/io5";
+import { IoLanguage } from "react-icons/io5";
 import { CiClock2 } from "react-icons/ci";
-import { FiPhone } from "react-icons/fi";
 import doctorImage from "../assets/Doctor.png";
 import { useMemo } from "react";
-import { FaHome, FaStar } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { MdVerified } from "react-icons/md";
 import { UseContextProvider } from "../Context/ContextProvider";
-
+                      
 const generateDateTabs = (numDays) => {
   const tabs = [];
   const today = new Date();

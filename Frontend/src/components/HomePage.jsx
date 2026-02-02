@@ -12,8 +12,21 @@ import psychiatry from "../assets/Psychiatry.png";
 import Articles from "./Articles";
 import { UseContextProvider } from "../Context/ContextProvider";
 import Footer from "./Footer";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const HomePage = () => {
+
+  const [newsdata, setnewsdata] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/home")
+    .then((response) => response.json())
+    .then((data) => {setnewsdata(data)
+    })
+    .catch((err) => console.log("Error: " + err));
+  },[])
+
   const { Isopen } = UseContextProvider();
   const specialties = [
     {
@@ -172,7 +185,7 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <Articles />
+          {newsdata && <Articles newsdata={newsdata} />}
         </div>
       </div>
       <Footer />

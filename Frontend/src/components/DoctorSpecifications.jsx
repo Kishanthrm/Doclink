@@ -1,4 +1,3 @@
-import React from "react";
 import "./DoctorSpecifications.css";
 import Header from "./Header";
 import Navbar from "./Navbar";

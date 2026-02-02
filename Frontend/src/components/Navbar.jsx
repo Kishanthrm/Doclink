@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { UseContextProvider } from "../Context/ContextProvider";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const { Isopen, setIsOpen } = UseContextProvider();
@@ -32,7 +33,7 @@ const Navbar = () => {
 
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="/home" className="nav-link " aria-current="page">
+            <Link to="/home" className="nav-link " aria-current="page">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -42,11 +43,11 @@ const Navbar = () => {
                 <use xlinkHref="#home"></use>
               </svg>
               Home
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/bookappoinments" className="nav-link text-white">
+            <Link to="/bookappoinments" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -56,11 +57,11 @@ const Navbar = () => {
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               Book Appointment
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/myappoinments" className="nav-link text-white">
+            <Link to="/myappoinments" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -70,11 +71,11 @@ const Navbar = () => {
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               My Appointments
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/medicalrecords" className="nav-link text-white">
+            <Link to="/medicalrecords" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -84,11 +85,11 @@ const Navbar = () => {
                 <use xlinkHref="#table"></use>
               </svg>
               Medical Records
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/bookappoinment" className="nav-link text-white">
+            <Link to="/bookappoinment" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -98,11 +99,11 @@ const Navbar = () => {
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               Payment
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/profile" className="nav-link text-white">
+            <Link to="/profile" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -112,11 +113,11 @@ const Navbar = () => {
                 <use xlinkHref="#grid"></use>
               </svg>
               Profile
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="" className="nav-link text-white">
+            <Link to="/" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -125,12 +126,12 @@ const Navbar = () => {
               >
                 <use xlinkHref="#people-circle"></use>
               </svg>
-              Help/Support
-            </a>
+              Help/[translate:Support]
+            </Link>
           </li>
 
           <li>
-            <a href="" className="nav-link text-white">
+            <Link to="/" className="nav-link text-white">
               <svg
                 className="bi pe-none me-2"
                 width="16"
@@ -140,7 +141,7 @@ const Navbar = () => {
                 <use xlinkHref="#people-circle"></use>
               </svg>
               LogOut
-            </a>
+            </Link>
           </li>
         </ul>
 

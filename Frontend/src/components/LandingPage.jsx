@@ -1,5 +1,6 @@
 import React from "react";
 import "./LandingPage.css";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 import bg from "../assets/fullhomebackground.png";
 import acne from "../assets/acne.png";
@@ -11,6 +12,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Footer from "./Footer";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="landing-page">
       {/* Header */}
@@ -52,7 +54,7 @@ const LandingPage = () => {
               Join our platform to offer trusted care and grow your medical
               reach effortlessly.
             </p>
-            <button className="header-button">Sign In</button>
+            <button className="header-button" onClick={() => navigate("/login")}>Sign In</button>
           </div>
 
           <div className="card-divider"></div>
@@ -64,7 +66,7 @@ const LandingPage = () => {
               just a few clicks. Get trusted medical advice and quality care
               from top specialists anytime, anywhere.
             </p>
-            <button className="header-button">Sign In</button>
+            <button className="header-button" onClick={() => navigate("/login")}>Sign In</button>
           </div>
         </div>
 
@@ -114,7 +116,7 @@ const LandingPage = () => {
                 Excellent platform! User-friendly interface and quick
                 appointments. A real lifesaver for health concerns.
               </p>
-              <span>– Rahul Mehta</span>
+              <span>- Rahul Mehta</span>
             </div>
             <div class="carousel-item">
               <h2>What our users have to say</h2>
@@ -122,7 +124,7 @@ const LandingPage = () => {
                 Great experience! Simple booking and professional doctors.
                 Highly recommended for consultations.
               </p>
-              <span>– Priya Sharma</span>
+              <span>- Priya Sharma</span>
             </div>
             <div class="carousel-item">
               <h2>What our users have to say</h2>
@@ -130,7 +132,7 @@ const LandingPage = () => {
                 Very helpful! Quick and easy booking with a great interface.
                 Keeps my consultation history in one place.
               </p>
-              <span>– Amit Mishra</span>
+              <span>- Amit Mishra</span>
             </div>
           </div>
           <button

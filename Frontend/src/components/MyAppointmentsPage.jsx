@@ -4,8 +4,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import { UseContextProvider } from "../Context/ContextProvider";
 import doctorImg from "../assets/Doctor.png";
-import Button from 'react-bootstrap/Button';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 const MyAppointmentsPage = () => {
   let navigate=useNavigate();
   const { Isopen } = UseContextProvider();

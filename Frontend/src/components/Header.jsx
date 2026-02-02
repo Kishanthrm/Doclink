@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,33 +10,33 @@ const Header = () => {
       <header className="header-container">
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none header-logo"
             >
               <span className="logo-text">DocLink</span>
-            </a>
+            </Link>
 
             <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li>
-                <a href="/bookappoinments" className="nav-link">
+                <Link to="/bookappoinments" className="nav-link">
                   Appointments
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/medicalrecords" className="nav-link">
+                <Link to="/medicalrecords" className="nav-link">
                   Medication-Follow-ups
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/" className="nav-link ">
+                <Link to="/" className="nav-link">
                   AI Support
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/profile" className="nav-link">
+                <Link to="/profile" className="nav-link">
                   Profile
-                </a>
+                </Link>
               </li>
             </ul>
 

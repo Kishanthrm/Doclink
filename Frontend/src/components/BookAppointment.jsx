@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Card, Row, Col, Image, Button } from "react-bootstrap";
 import Header from "./Header";
@@ -6,8 +6,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "./BookAppointment.css";
 import { UseContextProvider } from "../Context/ContextProvider";
-import doctorImg from "../assets/doctorImg.jpeg";
 import { BsHandThumbsUpFill } from "react-icons/bs";
+import doctorImg from "../../public/neha sharma profile.jpg";
 
 const BookAppointment = () => {
   const { Isopen } = UseContextProvider();
@@ -16,6 +16,16 @@ const BookAppointment = () => {
   const [isExpeienceDropDown, setIsExpeienceDropDown] = useState(false);
   const [isFeesDropDown, setIsFeesDropDown] = useState(false);
   const [isAvailabilityDropDown, setIsAvailabilityDropDown] = useState(false);
+  const [docData, setDocData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/bookappointments")
+      .then((response) => response.json())
+      .then((data) => {
+        setDocData(data);
+      })
+      .catch((err) => console.log("Error: " + err));
+  }, []);
 
   return (
     <div
@@ -29,6 +39,7 @@ const BookAppointment = () => {
         <Header />
         <Navbar />
       </div>
+
       <div
         style={{
           backgroundColor: "white",
@@ -63,6 +74,7 @@ const BookAppointment = () => {
           ></i>
         </div>
       </div>
+
       <div
         style={{
           display: "flex",
@@ -95,6 +107,7 @@ const BookAppointment = () => {
             <Dropdown.Item href="#">Female</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
         <Dropdown
           show={isExpeienceDropDown}
           onClick={() => setIsExpeienceDropDown(true)}
@@ -114,6 +127,7 @@ const BookAppointment = () => {
             <Dropdown.Item href="#">15+ Years of experience</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
         <Dropdown
           show={isFeesDropDown}
           onClick={() => setIsFeesDropDown(true)}
@@ -134,6 +148,7 @@ const BookAppointment = () => {
             <Dropdown.Item href="#">Above ₹1500</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
         <Dropdown
           show={isAvailabilityDropDown}
           onClick={() => setIsAvailabilityDropDown(true)}
@@ -155,256 +170,99 @@ const BookAppointment = () => {
           </Dropdown.Menu>
         </Dropdown>
       </div>
+
       <div>
         <div className="heading">Our Best Doctors</div>
-        <Card
-          className="mb-4 mx-auto p-0 doctor-appointment-card"
-          style={{
-            maxWidth: "800px",
-            border: "5px solid #bcdcf9ff",
-            boxShadow:
-              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            borderRadius: "16px",
-            margin: "50px",
-          }}
-        >
-          <Row className="g-0 overflow-hidden flex-md-row">
-            <Col xs="auto" className="d-none d-lg-block p-2">
-              <Image
-                src={doctorImg}
-                alt="Doctor"
-                roundedCircle
-                style={{
-                  height: "120px", // Made bigger
-                  width: "120px", // Made bigger
-                  objectFit: "cover",
-                }}
-                className="mt-4 ms-3" // Adjusted margin
-              />
-            </Col>
-
-            <Col>
-              <div className="p-4 d-flex flex-column position-static">
-                <div className="d-flex justify-content-between align-items-center">
-                  <h3 className="mb-0">John Snow</h3>
-                </div>
-                <strong className="d-inline-block mb-1 text-primary-emphasis">
-                  Cardiologist
-                </strong>
-                <p className="mb-1" style={{ fontWeight: "400" }}>
-                  5+ Years of experience
-                </p>
-                <p className="mb-2" style={{ fontWeight: "400" }}>
-                  MBBS, MD (Cardiology)
-                </p>{" "}
-                {/* Added Degree */}
-                <div className="d-flex align-items-center mb-2">
-                  <div
-                    className="bg-success text-white d-flex align-items-center fw-bold me-3"
+        {docData.length === 0 ? (
+          <p>Loading doctors...</p>
+        ) : (
+          docData.map((doctor, index) => (
+            <Card
+              key={index}
+              className="mb-4 mx-auto p-0 doctor-appointment-card"
+              style={{
+                maxWidth: "800px",
+                border: "5px solid #bcdcf9ff",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                borderRadius: "16px",
+                margin: "50px",
+              }}
+            >
+              <Row className="g-0 overflow-hidden flex-md-row">
+                <Col xs="auto" className="d-none d-lg-block p-2">
+                  <Image
+                    src={
+                    doctor.doc_profile_img
+                      ? `data:image/jpeg;base64,${doctor.doc_profile_img}`
+                      : doctorImg
+                  }
+                    alt="Doctor"
+                    roundedCircle
                     style={{
-                      padding: "5px 12px",
-                      borderRadius: "6px",
-                      fontSize: "18px",
-                      lineHeight: "1.2",
-                      height: "30px", // Made slightly bigger
-                      width: "90px", // Made slightly bigger
+                      height: "120px",
+                      width: "120px",
+                      objectFit: "cover",
                     }}
-                  >
-                    <BsHandThumbsUpFill
-                      style={{ marginRight: "5px", height: "15px" }}
-                    />
-                    98%
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <span className="me-2 text-muted">Languages:</span>
-                    <span className="fw-bold">
-                      English • Hindi • Punjabi
-                    </span>{" "}
-                    {/* Language Feature */}
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div className="d-flex flex-column">
-                    <p className="text-primary-emphasis mb-0 fs-5">
-                      {" "}
-                      {/* Made text bigger */}
-                      ₹300 Consultation fee
-                    </p>
-                  </div>
-                  <div className="d-flex justify-content-end mt-2 me-3">
-                    <Button className="details-button">View Details</Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Card>
-        <Card
-          className="mb-4 mx-auto p-0 doctor-appointment-card"
-          style={{
-            maxWidth: "800px",
-            border: "5px solid #bcdcf9ff",
-            boxShadow:
-              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            borderRadius: "16px",
-            margin: "50px",
-          }}
-        >
-          <Row className="g-0 overflow-hidden flex-md-row">
-            <Col xs="auto" className="d-none d-lg-block p-2">
-              <Image
-                src={doctorImg}
-                alt="Doctor"
-                roundedCircle
-                style={{
-                  height: "120px", // Made bigger
-                  width: "120px", // Made bigger
-                  objectFit: "cover",
-                }}
-                className="mt-4 ms-3" // Adjusted margin
-              />
-            </Col>
+                    className="mt-4 ms-3"
+                  />
+                </Col>
 
-            <Col>
-              <div className="p-4 d-flex flex-column position-static">
-                <div className="d-flex justify-content-between align-items-center">
-                  <h3 className="mb-0">John Snow</h3>
-                </div>
-                <strong className="d-inline-block mb-1 text-primary-emphasis">
-                  Cardiologist
-                </strong>
-                <p className="mb-1" style={{ fontWeight: "400" }}>
-                  5+ Years of experience
-                </p>
-                <p className="mb-2" style={{ fontWeight: "400" }}>
-                  MBBS, MD (Cardiology)
-                </p>{" "}
-                {/* Added Degree */}
-                <div className="d-flex align-items-center mb-2">
-                  <div
-                    className="bg-success text-white d-flex align-items-center fw-bold me-3"
-                    style={{
-                      padding: "5px 12px",
-                      borderRadius: "6px",
-                      fontSize: "18px",
-                      lineHeight: "1.2",
-                      height: "30px", // Made slightly bigger
-                      width: "90px", // Made slightly bigger
-                    }}
-                  >
-                    <BsHandThumbsUpFill
-                      style={{ marginRight: "5px", height: "15px" }}
-                    />
-                    98%
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <span className="me-2 text-muted">Languages:</span>
-                    <span className="fw-bold">
-                      English • Hindi • Punjabi
-                    </span>{" "}
-                    {/* Language Feature */}
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div className="d-flex flex-column">
-                    <p className="text-primary-emphasis mb-0 fs-5">
-                      {" "}
-                      {/* Made text bigger */}
-                      ₹300 Consultation fee
+                <Col>
+                  <div className="p-4 d-flex flex-column position-static">
+                    <div className="d-flex justify-content-between align-items-center">
+                      <h3 className="mb-0">{doctor.doc_name}</h3>
+                    </div>
+                    <strong className="d-inline-block mb-1 text-primary-emphasis">
+                      {doctor.doc_specialisation}
+                    </strong>
+                    <p className="mb-1" style={{ fontWeight: "400" }}>
+                      {doctor.doc_experience} Years of experience
                     </p>
-                  </div>
-                  <div className="d-flex justify-content-end mt-2 me-3">
-                    <Button className="details-button">View Details</Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Card>
-        <Card
-          className="mb-4 mx-auto p-0 doctor-appointment-card"
-          style={{
-            maxWidth: "800px",
-            border: "5px solid #bcdcf9ff",
-            boxShadow:
-              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-            borderRadius: "16px",
-            margin: "50px",
-          }}
-        >
-          <Row className="g-0 overflow-hidden flex-md-row">
-            <Col xs="auto" className="d-none d-lg-block p-2">
-              <Image
-                src={doctorImg}
-                alt="Doctor"
-                roundedCircle
-                style={{
-                  height: "120px", // Made bigger
-                  width: "120px", // Made bigger
-                  objectFit: "cover",
-                }}
-                className="mt-4 ms-3" // Adjusted margin
-              />
-            </Col>
-
-            <Col>
-              <div className="p-4 d-flex flex-column position-static">
-                <div className="d-flex justify-content-between align-items-center">
-                  <h3 className="mb-0">John Snow</h3>
-                </div>
-                <strong className="d-inline-block mb-1 text-primary-emphasis">
-                  Cardiologist
-                </strong>
-                <p className="mb-1" style={{ fontWeight: "400" }}>
-                  5+ Years of experience
-                </p>
-                <p className="mb-2" style={{ fontWeight: "400" }}>
-                  MBBS, MD (Cardiology)
-                </p>{" "}
-                {/* Added Degree */}
-                <div className="d-flex align-items-center mb-2">
-                  <div
-                    className="bg-success text-white d-flex align-items-center fw-bold me-3"
-                    style={{
-                      padding: "5px 12px",
-                      borderRadius: "6px",
-                      fontSize: "18px",
-                      lineHeight: "1.2",
-                      height: "30px", // Made slightly bigger
-                      width: "90px", // Made slightly bigger
-                    }}
-                  >
-                    <BsHandThumbsUpFill
-                      style={{ marginRight: "5px", height: "15px" }}
-                    />
-                    98%
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <span className="me-2 text-muted">Languages:</span>
-                    <span className="fw-bold">
-                      English • Hindi • Punjabi
-                    </span>{" "}
-                    {/* Language Feature */}
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div className="d-flex flex-column">
-                    <p className="text-primary-emphasis mb-0 fs-5">
-                      {" "}
-                      {/* Made text bigger */}
-                      ₹300 Consultation fee
+                    <p className="mb-2" style={{ fontWeight: "400" }}>
+                      {doctor.doc_qualification}
                     </p>
+                    <div className="d-flex align-items-center mb-2">
+                      <div
+                        className="bg-success text-white d-flex align-items-center fw-bold me-3"
+                        style={{
+                          padding: "5px 12px",
+                          borderRadius: "6px",
+                          fontSize: "18px",
+                          lineHeight: "1.2",
+                          height: "30px",
+                          width: "90px",
+                        }}
+                      >
+                        <BsHandThumbsUpFill
+                          style={{ marginRight: "5px", height: "15px" }}
+                        />
+                        98%
+                      </div>
+                      <div className="d-flex align-items-center">
+                        <span className="me-2 text-muted">Languages:</span>
+                        <span className="fw-bold">{doctor.doc_language}</span>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <div className="d-flex flex-column">
+                        <p className="text-primary-emphasis mb-0 fs-5">
+                          ₹300 Consultation fee
+                        </p>
+                      </div>
+                      <div className="d-flex justify-content-end mt-2 me-3">
+                        <Button className="details-button">View Details</Button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="d-flex justify-content-end mt-2 me-3">
-                    <Button className="details-button">View Details</Button>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Card>
+                </Col>
+              </Row>
+            </Card>
+          ))
+        )}
       </div>
-      <div style={{paddingTop: "100px"}}>
+
+      <div style={{ paddingTop: "100px" }}>
         <Footer />
       </div>
     </div>
